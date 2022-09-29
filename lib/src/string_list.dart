@@ -8,7 +8,7 @@
 // Если в строке есть слова, не являющиеся цифрами от 0 до 9, пропускайте их.
 
 class StringList {
-  static const numberWords = [
+  static const numberWords = <String>{
     'zero',
     'one',
     'two',
@@ -19,18 +19,69 @@ class StringList {
     'seven',
     'eight',
     'nine',
-  ];
+  };
 
   List<int> numberList(List<String> words) {
     var result = <int>[];
 
     for (var word in words) {
-      var index = numberWords.indexOf(word);
-      if (index != -1 && !result.contains(index)) {
-        result.add(index);
+      if (numberWords.contains(word)) {
+        var number = _wordToInt(word);
+        if (number != null && !result.contains(number)) {
+          result.add(number);
+        }
       }
     }
 
     return result;
+  }
+
+  int? _wordToInt(String word) {
+    const map = <String, int>{
+      'zero': 0,
+      'one': 1,
+      'two': 2,
+      'three': 3,
+      'four': 4,
+      'five': 5,
+      'six': 6,
+      'seven': 7,
+      'eight': 8,
+      'nine': 9,
+    };
+
+    return map[word];
+  }
+}
+
+class StringListMap {
+  List<int> numberList(List<String> words) {
+    var result = <int>[];
+
+    for (var word in words) {
+      var number = _wordToInt(word);
+      if (number != null && !result.contains(number)) {
+        result.add(number);
+      }
+    }
+
+    return result;
+  }
+
+  int? _wordToInt(String word) {
+    const map = <String, int>{
+      'zero': 0,
+      'one': 1,
+      'two': 2,
+      'three': 3,
+      'four': 4,
+      'five': 5,
+      'six': 6,
+      'seven': 7,
+      'eight': 8,
+      'nine': 9,
+    };
+
+    return map[word];
   }
 }

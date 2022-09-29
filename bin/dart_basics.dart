@@ -51,12 +51,20 @@ void main() {
   // 5. Получить из строки цифры без повторений, которые встречаются в строке.
   // Преобразовать цифры из английских слов в числа.
   print('Задание 5');
+  print('with Set and Map in function');
   final stringList = StringList();
   print(stringList.numberList([]));
   print(stringList.numberList(['cat', 'dog']));
   print(stringList.numberList(['one', 'two', 'three', 'cat', 'dog']));
   print(stringList.numberList(['one', 'two', 'three']));
   print(stringList.numberList(['one', 'two', 'zero', 'zero']));
+  print('without Set, only Map in function');
+  final stringListMap = StringListMap();
+  print(stringListMap.numberList([]));
+  print(stringListMap.numberList(['cat', 'dog']));
+  print(stringListMap.numberList(['one', 'two', 'three', 'cat', 'dog']));
+  print(stringListMap.numberList(['one', 'two', 'three']));
+  print(stringListMap.numberList(['one', 'two', 'zero', 'zero']));
   print('');
 
   // 6. Реализовать класс Point, описывающий точку в трёхмерном пространстве.
